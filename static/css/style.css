@@ -1,0 +1,78 @@
+html, body {
+    height: 100%;
+    max-height: 100%;
+}
+
+.top-container {
+    padding-top: 5%;
+}
+
+.general-container {
+    font-family: 'Roboto', sans-serif;
+    background: url('../img/bg-img1.jpg') no-repeat center center fixed;
+    height: 100%;
+    text-align: center;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-weight: 100;
+}
+
+.btn-orange {
+    background: none;
+    background-color: #cf0a17;
+    border: none;
+    color: #f0ebe7;
+}
+
+.btn-orange:hover {
+    background: none;
+    background-color: #b40a17;
+    border: none;
+}
+
+.general-container form {
+    margin-top: 20px;
+    color: #003ea5;
+}
+
+.general-container form label {
+    color: #c01b00;
+}
+
+.title-container{
+    margin-top: 240px;
+}
+
+.title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.brand-title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.social-icons{
+    margin-top: 195px;
+    font-size: 52px;
+}
+
+a {
+    color: white;
+}
+
+a:active{
+  color: #e2e2e2;
+}
+
+.form-control{
+    font-weight: 300;
+    color: #b40a17;
+}
