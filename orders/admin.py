@@ -17,6 +17,26 @@ class CustomerAdmin(admin.ModelAdmin):
 admin.site.register(Customer, CustomerAdmin)
 
 
+class DeliveryMethodAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in DeliveryMethod._meta.fields]
+
+    class Meta:
+        model = DeliveryMethod
+
+
+admin.site.register(DeliveryMethod, DeliveryMethodAdmin)
+
+
+class PaymentMethodAdmin(admin.ModelAdmin):
+    list_display = [field.name for field in PaymentMethod._meta.fields]
+
+    class Meta:
+        model = PaymentMethod
+
+
+admin.site.register(PaymentMethod, PaymentMethodAdmin)
+
+
 class StatusAdmin(admin.ModelAdmin):
     list_display = [field.name for field in Status._meta.fields]
 

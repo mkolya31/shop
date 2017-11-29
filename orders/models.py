@@ -22,8 +22,36 @@ class Customer(models.Model):
         verbose_name_plural = 'Покупатели'
 
 
+class DeliveryMethod(models.Model):
+    name = models.CharField(max_length=24, blank=True, null=True, default=None)
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return "Метод доставки: %s" % self.name
+
+    class Meta:
+        verbose_name = 'Метод доставки'
+        verbose_name_plural = 'Методы доставки'
+
+
+class PaymentMethod(models.Model):
+    name = models.CharField(max_length=48, blank=True, null=True, default=None)
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return "Метод оплаты: %s" % self.name
+
+    class Meta:
+        verbose_name = 'Метод оплаты'
+        verbose_name_plural = 'Методы оплаты'
+
+
 class Status(models.Model):
-    name = models.CharField(max_length=24, blank=True, null=True, default=0)
+    name = models.CharField(max_length=24, blank=True, null=True, default=None)
     is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -39,10 +67,10 @@ class Status(models.Model):
 class Order(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)  # total price for all products
     customer_id = models.ForeignKey(Customer, blank=True, null=True, default=None)
-    delivery_method = models.CharField(max_length=24, blank=True, null=True, default=None)
-    payment_method = models.CharField(max_length=24, blank=True, null=True, default=None)
+    delivery_method = models.ForeignKey(DeliveryMethod, blank=True, null=True, default=None)
+    payment_method = models.ForeignKey(PaymentMethod, blank=True, null=True, default=None)
     comments = models.TextField(blank=True, null=True, default=None)
-    status = models.ForeignKey(Status)
+    status = models.ForeignKey(Status, blank=True, null=True, default=None)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
