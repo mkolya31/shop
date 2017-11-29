@@ -2,6 +2,26 @@ from django.db import models
 from products.models import Product
 
 
+class Customer(models.Model):
+    customer_login = models.CharField(max_length=64, blank=True, null=True, default=None)
+    customer_password = models.CharField(max_length=64, blank=True, null=True, default=None)
+    customer_firstname = models.CharField(max_length=64, blank=True, null=True, default=None)
+    customer_secondname = models.CharField(max_length=64, blank=True, null=True, default=None)
+    customer_email = models.EmailField(max_length=64, blank=True, null=True, default=None)
+    customer_phone = models.CharField(max_length=48, blank=True, null=True, default=None)
+    customer_address = models.CharField(max_length=128, blank=True, null=True, default=None)
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return "Покупатель %s %s" % (self.customer_secondname, self.id)
+
+    class Meta:
+        verbose_name = 'Покупатель'
+        verbose_name_plural = 'Покупатели'
+
+
 class Status(models.Model):
     name = models.CharField(max_length=24, blank=True, null=True, default=0)
     is_active = models.BooleanField(default=True)
@@ -18,10 +38,7 @@ class Status(models.Model):
 
 class Order(models.Model):
     total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0)  # total price for all products
-    customer_name = models.CharField(max_length=64, blank=True, null=True, default=None)
-    customer_email = models.EmailField(max_length=64, blank=True, null=True, default=None)
-    customer_phone = models.CharField(max_length=48, blank=True, null=True, default=None)
-    customer_address = models.CharField(max_length=128, blank=True, null=True, default=None)
+    customer_id = models.ForeignKey(Customer, blank=True, null=True, default=None)
     delivery_method = models.CharField(max_length=24, blank=True, null=True, default=None)
     payment_method = models.CharField(max_length=24, blank=True, null=True, default=None)
     comments = models.TextField(blank=True, null=True, default=None)
