@@ -24,6 +24,9 @@ class Customer(models.Model):
 
 class DeliveryMethod(models.Model):
     name = models.CharField(max_length=24, blank=True, null=True, default=None)
+    description = models.TextField(blank=True, null=True, default=None)
+    delivery_time = models.CharField(max_length=24, blank=True, null=True, default=None)
+    remark = models.TextField(blank=True, null=True, default=None)
     is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
@@ -38,6 +41,9 @@ class DeliveryMethod(models.Model):
 
 class PaymentMethod(models.Model):
     name = models.CharField(max_length=48, blank=True, null=True, default=None)
+    description = models.TextField(blank=True, null=True, default=None)
+    commission = models.CharField(max_length=24, blank=True, null=True, default=None)
+    remark = models.TextField(blank=True, null=True, default=None)
     is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
