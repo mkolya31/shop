@@ -1,0 +1,173 @@
+html, body {
+    height: 100%;
+    max-height: 100%;
+    background-color: #edeef0;
+}
+
+.wrapper {
+    position: relative;
+    min-height: 100%;
+}
+
+.wrapper-content{
+    overflow: auto;
+    padding-bottom: 180px;
+}
+
+.navbar-top{
+    height:40px;
+    background-color: #131419;
+}
+
+.navbar-main{
+    height: 80px;
+}
+
+.content {
+    box-sizing: border-box;
+    min-height: 100%;
+    padding-bottom: 90px;
+}
+
+.top-container {
+    padding-top: 5%;
+}
+
+h1{
+    margin-top: 15px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+h4{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.nav-top-link{
+    color: white;
+    font-weight: 700;
+}
+
+.nav-top-link:hover{
+    color: #cce8ff;
+    font-weight: 700;
+}
+
+.general-container {
+    font-family: 'Roboto', sans-serif;
+    background: url('../img/bg-img1.jpg') no-repeat center center fixed;
+    height: 100%;
+    text-align: center;
+    webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-weight: 100;
+}
+
+.title-container {
+    margin-top: 240px;
+}
+
+.title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.brand-title {
+    color: #fffff9;
+    font-size: 50px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.product-item {
+    text-align: center;
+    height: 500px;
+    background: white;
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 1px solid lightgray;
+    padding: 5px 0 5px 0;
+}
+
+.add-to-cart-btn {
+    position: absolute;
+    bottom: 12px;
+    left: 0;
+    right: 0;
+}
+
+.product-thumbnails-img{
+    margin: 0 5px 0 5px;
+}
+
+.slider{
+    margin-bottom: 20px;
+}
+
+.product-short-desc{
+    margin: 5px;
+}
+
+.product-short-price{
+    position: absolute;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+}
+
+.product-discount{
+    position: absolute;
+    background: #5acc5a;
+    top: 40%;
+    left: 0;
+    width: 40%;
+    color: white;
+    font-weight: 700;
+}
+
+.footer {
+    position: relative;
+    margin-top: -180px;
+    width: 100%;
+    height: 180px; /* Set the fixed height of the footer here */
+    line-height: 60px; /* Vertically center the text there */
+    background-color: white;
+}
+
+.product-description-tabs{
+    margin-top: 15px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.product-page-img{
+    margin: 15px 0 15px 0;
+}
+
+.product-page-price{
+    padding: 15px 0 15px 0;
+    margin: 15px 0 15px 0;
+    border-bottom: 1px solid lightgray;
+}
+
+.nav-product-page{
+    padding-top: 15px;
+}
+
+.btn-page-buy{
+    margin-left: 5px;
+}
+
+.product-page-form-buy{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin: 15px 0 15px 0;
+    border-bottom: 1px solid lightgray;
+}

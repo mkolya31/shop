@@ -17,9 +17,12 @@ class ProductCategory(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=64, blank=True, null=True, default=None)
     price = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    discount = models.IntegerField(default=0)
     product_category = models.ForeignKey(ProductCategory, blank=True, null=True, default=None)
     short_description = models.TextField(blank=True, null=True, default=None)
     description = models.TextField(blank=True, null=True, default=None)
+    new_product = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
