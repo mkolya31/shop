@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container profile-container rounded">
+        <h1>Ваш профиль</h1>
+        <h5 class="profile-info">Логин: {{ user }}</h5>
+        <h5 class="profile-info">Имя: {{ user.first_name }}</h5>
+        <h5 class="profile-info">Фамилия: {{ user.last_name }}</h5>
+        <h5 class="profile-info">Email: {{ user.email }}</h5>
+        <button class="btn"><a href="/">Редактировать профиль</a> </button>
+    </div>
+{% endblock %}
