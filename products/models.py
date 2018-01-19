@@ -3,6 +3,7 @@ from django.db import models
 
 class ProductCategory(models.Model):
     name = models.CharField(max_length=48, blank=True, null=True, default=None)
+    is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
@@ -22,6 +23,7 @@ class Product(models.Model):
     short_description = models.TextField(blank=True, null=True, default=None)
     description = models.TextField(blank=True, null=True, default=None)
     new_product = models.BooleanField(default=True)
+    is_bestseller = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

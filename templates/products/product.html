@@ -20,7 +20,7 @@
                         Цена: {{ product.price }} &#8381/шт
                     </h4>
                 </div>
-                <form class="form-inline product-page-form-buy" id="form_buying_product">
+                <form class="form-inline product-page-form-buy" id="form_buying_product" action="{% url 'basket_adding' %}">{% csrf_token %}
                     <div class="form-group">
                         <div class="form-group">
                             <label for="inputPassword2" class="sr-only">Password</label>

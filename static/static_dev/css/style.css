@@ -49,6 +49,10 @@ h4{
     font-weight: 700;
 }
 
+.nav-link{
+    text-align: right;
+}
+
 .nav-top-link:hover{
     color: #cce8ff;
     font-weight: 700;
@@ -249,3 +253,35 @@ h4{
     color: #bef0ff;
     font-size: 48px;
 }
+
+a.text:active, /* активная/посещенная ссылка */
+a.text {
+  text-decoration: none;
+  color: #212529;
+}
+
+a.text:hover {
+    text-decoration: none;
+    color: #43474b;
+}
+
+ul.nav li.dropdown:hover ul.dropdown-menu{
+display: block;
+margin: 0;
+}
+
+a.menu:after, .dropdown-toggle:after {
+content: none;
+}
+
+.basket-container{
+    width: 400px;
+}
+
+.basket-items{
+    width: 100%;
+}﻿
+
+.card-columns{
+    text-align: center;
+ }

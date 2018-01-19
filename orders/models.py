@@ -118,6 +118,32 @@ class ProductInOrder(models.Model):
         super(ProductInOrder, self).save(*args, **kwargs)
 
 
+class ProductInBasket(models.Model):
+    session_key = models.CharField(max_length=128, blank=True, null=True, default=None)
+    order = models.ForeignKey(Order, blank=True, null=True, default=None)
+    product = models.ForeignKey(Product, blank=True, null=True, default=None)
+    number = models.IntegerField(default=1)
+    price_per_item = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+    total_price = models.DecimalField(max_digits=10, decimal_places=2, default=0) #price*nmb*discount
+    is_active = models.BooleanField(default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return "%s %s" % (self.product.name, self.product.id)
+
+    class Meta:
+        verbose_name = 'Товар в корзине'
+        verbose_name_plural = 'Товары в корзине'
+
+    def save(self, *args, **kwargs):
+        price_per_item = self.product.price
+        self.price_per_item = price_per_item
+        self.total_price = int(self.number) * price_per_item
+
+        super(ProductInBasket, self).save(*args, **kwargs)
+
+
 def product_in_order_post_save(sender, instance, created, **kwargs):
         order = instance.order
         all_products_in_order = ProductInOrder.objects.filter(order=order, is_active=True)
