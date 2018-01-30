@@ -80,7 +80,7 @@
                 <a href="#" class="dropdown-toggle nav-link active" data-toggle="dropdown" role="button"
                    aria-haspopup="true"
                    aria-expanded="true"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Корзина <span
-                        id="product_total_numb">
+                        id="product_total_numb">{% csrf_token %}
                     {% if products_total_numb %}
                         ({{ products_total_numb }})
                     {% else %}
@@ -93,9 +93,16 @@
                             {% for product_in_basket in products_in_basket %}
                                 <li><h6>{{ product_in_basket.product.name }} {{ product_in_basket.number }} шт.
                                     по {{ product_in_basket.price_per_item }} руб. <a class="delete-item"
-                                                                                              href="">x</a>
+                                                                                     href="" data-product_id="{{ product_in_basket.id }}">x</a>
+{#                                    must look like this href="" data-product_id="{{ product_in_basket.id }}"#}
                                 </h6></li>
                             {% endfor %}
+                            <div class="checkout-btn">
+                                <form>
+                                    <input class="btn btn-success" type="button" value="Оформить заказ"
+                                           onclick="javascript:window.location='/checkout'"/>
+                                </form>
+                            </div>
                         {% else %}
                             <h4>Корзина пуста!</h4>
                         {% endif %}
